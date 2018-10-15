@@ -3,7 +3,7 @@ Type: Package
 Title: Evaluates the performance of glm model with binomial family
 Version: 0.1.0
 Author: Gabriela Plantie
-Maintainer: Gabriela Plantie <glplantie@glplantie@gmail.com>
+Maintainer: Gabriela Plantie <glplantie@gmail.com>
 Description: Obtains KS of the model, ks of the model replacing each variable by its mean.
 License: GPL
 Encoding: UTF-8
