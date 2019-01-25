@@ -25,7 +25,6 @@ ks_var_equals_mean<-function (tbla, modelo_object, formula_model){
   set.seed(55555)
   mod = glm(formula_model, family=binomial, data = tbla)
   tbla$pred_prob<-predict(mod, tbla, type=c("response"))
-  head(tbla0)
   vars=length(attr(terms(mod), "term.labels"))
   ks_todas=ks_obtener(tbla, pred_prob_name='pred_prob', target_name)
   #ks impute one variable each time by its mean
