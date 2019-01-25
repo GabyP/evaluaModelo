@@ -32,7 +32,7 @@ ks_var_equals_mean<-function (tbla, modelo_object, formula_model){
   result_df=data.frame(variable_mean=c('none'), ks=ks_todas)
   for (i in lista) {
     tbla0<-tbla
-    tbla0[,i]<-mean(tbla0[,i])
+    tbla0[,i]<-0
     tbla0$pred_prob<-predict(mod, tbla0, type=c("response"))
     ks_i=ks_obtener(tbla0, pred_prob_name='pred_prob', target_name)
     result_df<-rbind(result_df,
