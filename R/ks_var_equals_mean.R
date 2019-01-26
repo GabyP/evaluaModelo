@@ -19,6 +19,8 @@
 
 ks_var_equals_mean<-function (tbla, modelo_object, formula_model){
   target_name<-colnames((model.frame(formula_model, data=tbla)))[1]
+  tbla=data.frame(tbla)
+
   tbla$target<-tbla[,target_name]
 
   #ks using all variables

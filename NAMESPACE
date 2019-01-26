@@ -2,3 +2,5 @@
 
 export(ks_obtener)
 export(ks_var_equals_mean)
+export(ks_var_less_one)
+export(ks_var_list)
