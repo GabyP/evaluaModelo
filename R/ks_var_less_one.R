@@ -14,7 +14,7 @@
 #'
 #'
 
-ks_var_less_one<-function (tbla, modelo_object, formula_model, tbla_test){
+ks_var_less_one<-function (tbla, formula_model, tbla_test){
   target_name<-colnames((model.frame(formula_model, data=tbla)))[1]
   tbla=data.frame(tbla)
   tbla_test=data.frame(tbla_test)
