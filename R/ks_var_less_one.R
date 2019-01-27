@@ -13,6 +13,7 @@
 #' @examples
 #'
 #'
+
 ks_var_less_one<-function (tbla, modelo_object, formula_model, tbla_test){
   target_name<-colnames((model.frame(formula_model, data=tbla)))[1]
   tbla=data.frame(tbla)
@@ -31,13 +32,13 @@ ks_var_less_one<-function (tbla, modelo_object, formula_model, tbla_test){
 
   ks_todas=ks_obtener(tbla, pred_prob_name='pred_prob', target_name)
   ks_test=ks_obtener(tbla_test, pred_prob_name='pred_prob', target_name)
-
+  print(paste0('ks_train_todas: ', ks_todas, '. Ks_test_todas: ', ks_test))
 
   #ks impute one variable each time by its mean
   lista<-attr(terms(mod), "term.labels")
-  result_df=data.frame(variable_mean=c('none'), ks=ks_todas, ks_test=ks_test)
+  result_df=data.frame(less_one=c('none'), ks=ks_todas, ks_test=ks_test)
 
-  for (i in lista) {
+  for (i in lista) {#i=lista[1]
     print(i)
     tbla0<-tbla
     #tbla0[,i]<-0#mean(tbla0[,i])
@@ -61,9 +62,8 @@ ks_var_less_one<-function (tbla, modelo_object, formula_model, tbla_test){
                      data.frame(less_one=as.character(i), ks=ks_i, ks_test=ks_i_test))
   }
 
-  result_df0<-result_df[result_df$variable_mean=='none',]
-  result_df_resto<-result_df[result_df$variable_mean!='none',]
-  result_df_resto<-result_df_resto[order(result_df_resto$ks),]
+  result_df0<-result_df[result_df$less_one=='none',]
+  result_df_resto<-result_df[result_df$less_one!='none',]
+  result_df_resto<-result_df_resto[order(-result_df_resto$ks),]
   return(rbind(result_df0, result_df_resto))
 }
-
