@@ -4,7 +4,7 @@
 #' get Komolgorov-Smirnov value test for a variable for a list of periods/or other variable.
 #' .
 #' @param tbla table with data. It has to have the target_name.
-#' @param model the model with the list of variables.
+#' @param formula_model the model with the list of variables.
 #' @param target_name the name of the target.
 #' @param splitter_name the name of the variable that is going to be used to split the data.
 #' @import reshape2

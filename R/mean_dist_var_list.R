@@ -4,7 +4,7 @@
 #' get mean value for a lis of variables (numeric or factors)
 #' .
 #' @param tbla table with data. It has to have the target_name.
-#' @param model the model with the list of variables.
+#' @param formula_model the model with the list of variables.
 #' @keywords
 #' @import dplyr
 #' @export

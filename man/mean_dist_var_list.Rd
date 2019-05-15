@@ -9,7 +9,7 @@ mean_dist_var_list(tbla, formula_model)
 \arguments{
 \item{tbla}{table with data. It has to have the target_name.}
 
-\item{model}{the model with the list of variables.}
+\item{formula_model}{the model with the list of variables.}
 }
 \description{
 get mean value for a lis of variables (numeric or factors)

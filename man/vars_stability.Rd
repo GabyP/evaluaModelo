@@ -9,11 +9,11 @@ vars_stability(tbla, formula_model, target_name, splitter_name)
 \arguments{
 \item{tbla}{table with data. It has to have the target_name.}
 
+\item{formula_model}{the model with the list of variables.}
+
 \item{target_name}{the name of the target.}
 
 \item{splitter_name}{the name of the variable that is going to be used to split the data.}
-
-\item{model}{the model with the list of variables.}
 }
 \description{
 get Komolgorov-Smirnov value test for a variable for a list of periods/or other variable.
