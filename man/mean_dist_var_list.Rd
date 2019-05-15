@@ -33,5 +33,5 @@ y = rbinom(1000,1,pr)
 tbla = data.frame(y=y,x1=x1,x2=x2, x4=x4, per=per)
 formula_model=formula(y~x2+x1+x4)
 mean_dist_var_list(tbla, formula_model)
-
+formula_model=formula(y~x2+x1)
 }

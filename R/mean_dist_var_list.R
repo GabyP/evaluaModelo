@@ -26,12 +26,14 @@
 #' tbla = data.frame(y=y,x1=x1,x2=x2, x4=x4, per=per)
 #' formula_model=formula(y~x2+x1+x4)
 #' mean_dist_var_list(tbla, formula_model)
-#'
+#' formula_model=formula(y~x2+x1)
 
 
 
 
 mean_dist_var_list<-function (tbla, formula_model){
+  distris=NULL
+  res_num=NULL
   #q_variables=length(formula_model[[3]])
   mod = glm(formula_model, family=binomial, data = tbla)
   lista<-attr(terms(mod), "term.labels")
@@ -55,7 +57,9 @@ mean_dist_var_list<-function (tbla, formula_model){
       distris$val_o_partic=distris$participacion
       }
   }
-res=rbind(res_num, distris)
+  if(is.null(res_num)==F ){res=res_num}
+  if(is.null(distris)==F ){res=distris}
+  if(is.null(res_num)==F & is.null(distris)==F){print('ambas'); res=rbind(res_num, distris)}
 return(res)
 }
 
