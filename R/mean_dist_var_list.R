@@ -43,18 +43,20 @@ mean_dist_var_list<-function (tbla, formula_model){
     if(class(tbla[,i])%in% c('numeric', 'integer', 'bit64') ){
       media=round(mean(tbla[,i], na.rm=T),2)
       res_num=data.frame(variable=i, tipo='numeric', nivel_factor='', operacion='mean',valor=media, participacion=1)
-      res_num$val_o_partic=res_num$valor
+      if(is.null(res_num)==F ){ res_num$val_o_partic=res_num$valor}
       }
     if(class(tbla[,i])%in% c('character', 'factor') ){#i=lista[3]
       distris=data.frame(tbla%>%group_by_(i)%>%summarise(cant=n()))
-      colnames(distris)=c('nivel_factor', 'valor')
-      distris$variable=i
-      distris$tipo='factor'
-      distris$operacion='conteo'
-      distris=distris[,c('variable','tipo', 'nivel_factor', 'operacion', 'valor')]
-      tot=sum(distris$valor)
-      distris$participacion=round(distris$valor/tot,2)
-      distris$val_o_partic=distris$participacion
+      if(is.null(distris)==F ){
+        colnames(distris)=c('nivel_factor', 'valor')
+        distris$variable=i
+        distris$tipo='factor'
+        distris$operacion='conteo'
+        distris=distris[,c('variable','tipo', 'nivel_factor', 'operacion', 'valor')]
+        tot=sum(distris$valor)
+        distris$participacion=round(distris$valor/tot,2)
+        distris$val_o_partic=distris$participacion
+        }
       }
   }
   if(is.null(res_num)==F ){res=res_num}
