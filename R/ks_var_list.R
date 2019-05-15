@@ -10,8 +10,19 @@
 #' @keywords
 #' @export
 #' @examples
-#'
-#'
+#' set.seed(1)
+#' x1 = rnorm(1000)
+#' x2 = rnorm(1000)
+#' z = 1 + 3*x1
+#' pr = 1/(1+exp(-z))
+#' y = rbinom(1000,1,pr)
+#' tbla = data.frame(y=y,x1=x1,x2=x2, x4=x4)
+#' formula_model=formula('y~x1+x2')
+#' ks_var_list(tbla, formula_model, tbla)
+
+
+
+
 ks_var_list<-function (tbla, formula_model, tbla_test){
   target_name<-colnames((model.frame(formula_model, data=tbla)))[1]
   tbla=data.frame(tbla)
@@ -36,6 +47,7 @@ ks_var_list<-function (tbla, formula_model, tbla_test){
   lista<-attr(terms(mod), "term.labels")
   result_df=data.frame(only_one_var=c('all'), ks=ks_todas, ks_test=ks_test)
 
+  print('performance del modelo de cada variable contra la target')
   for (i in lista) {
     print(i)
     tbla0<-tbla

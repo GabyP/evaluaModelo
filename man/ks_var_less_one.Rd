@@ -4,16 +4,16 @@
 \alias{ks_var_less_one}
 \title{ks_var_less_one}
 \usage{
-ks_var_less_one(tbla, modelo_object, formula_model, tbla_test)
+ks_var_less_one(tbla, formula_model, tbla_test)
 }
 \arguments{
 \item{tbla}{table with data. It has to have the target_name. It will be used to train the new model when deleting one variable}
 
-\item{modelo_object}{the model trained to predict the target variable.}
-
 \item{formula_model}{the final formula of the model.}
 
 \item{tbla_test}{table with test data.}
+
+\item{modelo_object}{the model trained to predict the target variable.}
 }
 \description{
 get Komolgorov-Smirnov value test for a model in train and test, deleting one variable at a time
